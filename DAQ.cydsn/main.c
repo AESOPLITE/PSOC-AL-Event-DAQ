@@ -1861,10 +1861,11 @@ int main(void)
                                 set_SPI_SSN(SSN_TOF, true);
                                 SPIM_WriteTxData(readConfig);
                                 //CyDelay(1);
-                                while (SPIM_GetRxBufferSize() == 0) SPIM_WriteTxData(0x00);
+                                while (SPIM_GetRxBufferSize() == 0) ;//SPIM_WriteTxData(0x00);
                                 SPIM_ReadRxData();    // The first byte read back is always garbage.
                                 for (int bt=0; bt<TOFSIZE; ++bt) {
-                                    while (SPIM_GetRxBufferSize() == 0) SPIM_WriteTxData(0x00);
+                                    SPIM_WriteTxData(0x00);
+                                    while (SPIM_GetRxBufferSize() == 0);
                                     dataOut[bt] = SPIM_ReadRxData();
                                     //dataOut[bt] = tofConfig[bt];
                                 }
