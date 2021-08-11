@@ -1479,9 +1479,9 @@ int main(void)
             dataOut[20] = byte32(timeWord, 2);
             dataOut[21] = byte32(timeWord, 3);
             dataOut[22] = trgStatus;
-            uint16 T1mV = adc2_sampleArray[2]; //ADC_SAR_2_CountsTo_mVolts(adc2_sampleArray[2]);
+            uint16 T1mV = adc2_sampleArray[0]; //changed from [2] due to possible outdated schemetic -B ADC_SAR_2_CountsTo_mVolts(adc2_sampleArray[2]);
             uint16 T2mV = adc1_sampleArray[0]; //ADC_SAR_1_CountsTo_mVolts(adc1_sampleArray[0]);
-            uint16 T3mV = adc2_sampleArray[0]; //ADC_SAR_2_CountsTo_mVolts(adc2_sampleArray[0]);
+            uint16 T3mV = adc2_sampleArray[2]; //changed from [0] due to possible outdated schemetic -B ADC_SAR_2_CountsTo_mVolts(adc2_sampleArray[0]);
             uint16 T4mV = adc1_sampleArray[1]; //ADC_SAR_1_CountsTo_mVolts(adc1_sampleArray[1]);
             uint16 GmV =  adc2_sampleArray[1]; //ADC_SAR_2_CountsTo_mVolts(adc2_sampleArray[1]);
             dataOut[23] = byte16(T1mV, 0);   // T1
